@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlaySound : MonoBehaviour {
     private AudioSource audio;
-    
+    public AudioClip audioClip;
+
+    private bool audioHasBeenPlayed = false;
+
     void Start ()
     {
         audio = GetComponent<AudioSource>();
@@ -12,6 +15,11 @@ public class PlaySound : MonoBehaviour {
 
     public void playAudio()
     {
-        audio.Play();
+        if (audioHasBeenPlayed == false)
+        {
+            audio.clip = audioClip;
+            audio.Play();
+            audioHasBeenPlayed = true;
+        }
     }
 }
