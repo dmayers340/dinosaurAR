@@ -8,20 +8,12 @@ public class ShowObjects : MonoBehaviour
     public GameObject objectToChange;
     public Button button;
     public bool currentState;
-    public Color changedColor;
-
-    public ColorBlock colorBlock;
 
     public void Start()
     {
         button.onClick.AddListener(showObject);
         objectToChange.SetActive(false);
         currentState = false;
-        colorBlock = button.colors;
-        colorBlock.normalColor = Color.blue;
-        colorBlock.pressedColor = changedColor;
-        button.colors = colorBlock;
-
     }
     public void showObject()
     {
